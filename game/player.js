@@ -1,5 +1,6 @@
-var Player = function(name, color, position, direction) {
+var Player = function(name, color, position, direction, light) {
 
+    this.light = light;
     this.name = name;
     this.position = position;
     this.life = 3;
@@ -77,10 +78,14 @@ Player.prototype.move = function () {
         this.speed = this.speed - 0.04;
     }
     else if (this.speed < 0) {
-        this.speed = this.speed + 0.04
+        this.speed = this.speed + 0.04;
     }
 
-    light1.position.x = this.graphic.position.x;
+    this.light.position.x = this.graphic.position.x;
+    this.light.position.y = this.graphic.position.y;
+    this.light.position.z = this.graphic.position.z + 300;
+
+   /* light1.position.x = this.graphic.position.x;
     light1.position.y = this.graphic.position.y;
-   // light1.position.z = this.graphic.position.z + 500;
+    light1.position.z = this.graphic.position.z + 100;*/
 };
